@@ -8,6 +8,7 @@ import { TaskService } from '../service/task.service';
   styleUrls: ['./list-todos.component.css'],
 })
 export class ListTodosComponent implements OnInit {
+  message!: string;
   todos: Todo[] = [];
 
   constructor(private taskService: TaskService) {}
@@ -16,5 +17,12 @@ export class ListTodosComponent implements OnInit {
     this.taskService.getTasks().subscribe((data) => {
       this.todos = data;
     });
+  }
+
+  deleteTodo(todoId: number) {
+    this.taskService.deleteTask(todoId).subscribe((response) => {
+      console.log(response);
+    });
+    this.message = `Delete of todo ${todoId} succesfull`;
   }
 }
