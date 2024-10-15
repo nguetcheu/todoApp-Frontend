@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../interface/Todo';
 import { TaskService } from '../service/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-todos',
@@ -11,7 +12,7 @@ export class ListTodosComponent implements OnInit {
   message!: string;
   todos: Todo[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private router: Router, private taskService: TaskService) {}
 
   ngOnInit() {
     this.refreshTodos();
@@ -23,8 +24,8 @@ export class ListTodosComponent implements OnInit {
     });
   }
 
-  updateTodo(i: numberng) {
-    throw new Error('Method not implemented.');
+  updateTodo(id: number) {
+    this.router.navigate(['todo', id]);
   }
 
   deleteTodo(todoId: number) {

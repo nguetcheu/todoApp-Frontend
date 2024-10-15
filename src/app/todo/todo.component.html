@@ -1,1 +1,8 @@
-<p>todo works!</p>
+<p>{{ todo.description }}</p>
+<p>{{ todo.done }}</p>
+<p>{{ todo.targetDate | date }}</p>
+
+<input type="text" value="{{ todo.description }}" />
+<select>
+  <option>{{ todo.done }}</option>
+</select>
