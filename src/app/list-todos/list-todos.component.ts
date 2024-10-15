@@ -23,6 +23,10 @@ export class ListTodosComponent implements OnInit {
     });
   }
 
+  updateTodo(i: numberng) {
+    throw new Error('Method not implemented.');
+  }
+
   deleteTodo(todoId: number) {
     this.taskService.deleteTask(todoId).subscribe((response) => {
       console.log(response);
