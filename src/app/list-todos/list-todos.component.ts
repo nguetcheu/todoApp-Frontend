@@ -14,6 +14,10 @@ export class ListTodosComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
+    this.refreshTodos();
+  }
+
+  refreshTodos() {
     this.taskService.getTasks().subscribe((data) => {
       this.todos = data;
     });
@@ -22,7 +26,8 @@ export class ListTodosComponent implements OnInit {
   deleteTodo(todoId: number) {
     this.taskService.deleteTask(todoId).subscribe((response) => {
       console.log(response);
+      this.message = `Delete of todo ${todoId} succesfull`;
+      this.refreshTodos();
     });
-    this.message = `Delete of todo ${todoId} succesfull`;
   }
 }
