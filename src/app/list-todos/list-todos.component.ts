@@ -35,4 +35,8 @@ export class ListTodosComponent implements OnInit {
       this.refreshTodos();
     });
   }
+
+  addTodo() {
+    this.router.navigate(['todo', -1]);
+  }
 }

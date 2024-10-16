@@ -20,16 +20,21 @@ export class TodoComponent implements OnInit {
   idTodo!: number;
 
   ngOnInit() {
-    this.idTodo = this.router.snapshot.params['id'];
+    this.idTodo = this.router.snapshot.params['id'];  
     if (this.idTodo != undefined) {
       this.taskService.getTaskById(this.idTodo).subscribe((response) => {
         this.todo = response;
       });
     }
-    this.todo = { id: 1, description: '', done: false, targetDate: new Date() };
+    this.todo = {
+      id: this.idTodo,
+      description: '',
+      done: false,
+      targetDate: new Date(),
+    };
   }
 
-  saveTodo() {
+  updateTodo() {
     this.taskService
       .updateTask(this.idTodo, this.todo)
       .subscribe((response) => {
