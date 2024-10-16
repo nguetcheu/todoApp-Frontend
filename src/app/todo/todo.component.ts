@@ -24,4 +24,6 @@ export class TodoComponent implements OnInit {
       this.todo = response;
     });
   }
+
+  saveTodo() {}
 }
