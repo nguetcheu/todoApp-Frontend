@@ -62,7 +62,7 @@ export class TodoComponent implements OnInit {
 
   // Vérifie si c'est une nouvelle tâche
   private isCreatingNewTodo(): boolean {
-    return this.idTodo === -1;
+    return this.idTodo == -1;
   }
 
   // Crée une nouvelle tâche
